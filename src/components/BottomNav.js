@@ -6,22 +6,15 @@ import BusinessIcon from '@material-ui/icons/Business';
 import HelpIcon from '@material-ui/icons/Help';
 import InfoIcon from '@material-ui/icons/Info';
 import ShowChartIcon from '@material-ui/icons/ShowChart';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
     background: "#eee",
     width: "100%",
-    color: "#622569",
     "& .MuiBottomNavigationAction-root.Mui-selected": {
         color: "#622569"
     }
-    // MuiBottomNavigationAction: {
-    //     color: "#e06377",
-    //     selected: {
-    //         color: "#c83349"
-    //     }
-    // }
-
   },
 });
 export default function SimpleBottomNavigation() {
@@ -37,10 +30,30 @@ export default function SimpleBottomNavigation() {
       showLabels
       className={classes.root}
     >
-      <BottomNavigationAction label="Main" icon={<ShowChartIcon />} />
-      <BottomNavigationAction label="List" icon={<BusinessIcon />} />
-      <BottomNavigationAction label="Help" icon={<HelpIcon />} />
-      <BottomNavigationAction label="About" icon={<InfoIcon />} />
+    <BottomNavigationAction 
+        label="Map" 
+        icon={<ShowChartIcon />} 
+        component={Link}
+        to="/"
+    />
+    <BottomNavigationAction 
+        label="List" 
+        icon={<BusinessIcon />} 
+        component={Link}
+        to="/list"
+    />
+    <BottomNavigationAction 
+        label="Help" 
+        icon={<HelpIcon />} 
+        component={Link}
+        to="/help"
+    />
+    <BottomNavigationAction 
+        label="About" 
+        icon={<InfoIcon />} 
+        component={Link}
+        to="/about"
+    />
     </BottomNavigation>
   );
 }
