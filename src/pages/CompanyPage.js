@@ -12,6 +12,59 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import ButtonBase from '@material-ui/core/ButtonBase';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+      flexGrow: 1,
+      "& .makeStyles-paper-150": {
+        marginBottom: '20px'
+      },
+    },
+    paper: {
+      padding: theme.spacing(2),
+      margin: 'auto',
+      maxWidth: 500,
+      "& .makeStyles-paper-150": {
+        marginBottom: '20px'
+      },
+    },
+    image: {
+      width: 128,
+      height: 128,
+    },
+    img: {
+      margin: 'auto',
+      display: 'block',
+      maxWidth: '100%',
+      maxHeight: '100%',
+    },
+  }));
+
+// const useStyles = makeStyles({
+//     root: {
+//       minWidth: 275,
+//     },
+//     bullet: {
+//       display: 'inline-block',
+//       margin: '0 2px',
+//       transform: 'scale(0.8)',
+//     },
+//     title: {
+//       fontSize: 14,
+//     },
+//     pos: {
+//       marginBottom: 12,
+//     },
+//   });
 
 // request('https://finnhub.io/api/v1/company-news?symbol=AAPL&from=2020-04-30&to=2020-05-01&token=bqbdflvrh5r8t7qng0fg', 
 
@@ -26,6 +79,9 @@ import Divider from '@material-ui/core/Divider';
 // https://financialmodelingprep.com/api/v3/company/profile/AAPL
 
 const CompanyPage = () => {
+
+    const classes = useStyles();
+
 
     const { symbol } = useParams();
     console.log("symnbol:", symbol);
@@ -62,10 +118,12 @@ const CompanyPage = () => {
       }, [symbol])
     
     return (
-        <div>
+        <div className={classes.root}>
             <AppBar/>
-                <Container>
+                <Container maxWidth="sm">
+                <br></br>
                 Detail: {company.symbol}
+                <br></br>
                 Price: {company.price}
 
 
@@ -79,22 +137,47 @@ const CompanyPage = () => {
                     </ListItem>
                     </div>
                 ))}  
-
-                <List component="nav" aria-label="main mailbox folders">
+                
                 {posts.map(item => (
                     <div key={item.title}>
-                    <a href={item.url}>
-                    <ListItem button onClick >
-                        <ListItemText
-                        primary={item.headline}
-                        secondary={item.summary}
-                        />
-                    </ListItem>
-                    <Divider/>
-                    </a>
-                    </div>
+                <Paper className={classes.paper}>
+                    <Grid container spacing={2}>
+                    <Grid item>
+                        <ButtonBase className={classes.image}>
+                        <img className={classes.img} alt="complex" src={item.image} />
+                        </ButtonBase>
+                    </Grid>
+                    <Grid item xs={12} sm container>
+                        <Grid item xs container direction="column" spacing={2}>
+                        <Grid item xs>
+                            <Typography gutterBottom variant="subtitle1">
+                            {item.headline}
+                            </Typography>
+                            <Typography variant="body2" gutterBottom>
+                            {item.summary}
+                            </Typography>
+                            <Typography variant="body2" color="textSecondary">
+                            {item.source}
+                            </Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography variant="body2" style={{ cursor: 'pointer' }}>
+                            <Button className={classes.btn} size="small">
+                                <a href={item.url}>
+                                More Detail
+                                </a>
+                            </Button>
+                            </Typography>
+                        </Grid>
+                        </Grid>
+                        <Grid item>
+                        <Typography variant="subtitle1">{item.id}</Typography>
+                        </Grid>
+                    </Grid>
+                    </Grid>
+                </Paper>
+                </div>
                 ))}  
-                </List>
                 </Container>
             <BottomNav/>
         </div>
