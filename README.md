@@ -15,6 +15,7 @@
 - Add API
 - Fetch CompanyList
 - Show Company Sympbol & Name
+- Fetch Company News
 
 ---
 
