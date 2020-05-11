@@ -10,3 +10,4 @@
 ##### todo
 
 - Reducer / Redux / React-Redux / Redux-thunk / Redux-logger  store를 provider 시키기
+- AppBar 
