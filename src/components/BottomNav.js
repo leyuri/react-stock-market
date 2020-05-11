@@ -45,7 +45,7 @@ export default function SimpleBottomNavigation() {
       className={classes.root}
     >
     <BottomNavigationAction 
-        label="Map" 
+        label="Chart" 
         icon={<ShowChartIcon />} 
         component={Link}
         to="/"
