@@ -15,6 +15,7 @@ import AboutPage from "./pages/AboutPage";
 import HelpPage from "./pages/HelpPage";
 import CompanyListPage from "./pages/CompanyListPage";
 import MainPage from "./pages/MainPage";
+import CompanyPage from "./pages/CompanyPage";
 
 const useStyles = makeStyles((theme) => ({
   // theme라는게 넘어오면 테마에 기본적인 space들이 정해져 있다. 
@@ -43,6 +44,9 @@ function App() {
             </Route>
             <Route path="/help">
               <HelpPage />
+            </Route>
+            <Route path="/companies/:symbol">
+              <CompanyPage />
             </Route>
             <Route path="/">
               <MainPage />
