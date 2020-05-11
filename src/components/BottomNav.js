@@ -6,7 +6,7 @@ import BusinessIcon from '@material-ui/icons/Business';
 import HelpIcon from '@material-ui/icons/Help';
 import InfoIcon from '@material-ui/icons/Info';
 import ShowChartIcon from '@material-ui/icons/ShowChart';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -22,7 +22,16 @@ const useStyles = makeStyles({
 });
 export default function SimpleBottomNavigation() {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const location = useLocation();
+  const [value, setValue] = React.useState(() =>{
+
+    const path = location.pathname;
+    //pathname은 URL의 경로 이름을 설정하거나 반환
+    if (path === "/list") return 1;
+    if (path === "/help") return 2;
+    if (path === "/about") return 3;
+    return 0; 
+});
 
   return (
     <BottomNavigation
