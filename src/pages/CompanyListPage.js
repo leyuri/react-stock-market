@@ -9,6 +9,7 @@ import AppBar from "../components/AppBar";
 import BottomNav from "../components/BottomNav";
 import { fetchCompanyList } from "../actions";
 
+
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -49,6 +50,8 @@ const CompanyItem = ({e}) => {
 
 const CompanyListPage = () => {
     const classes = useStyles();
+
+    
     const symbolsList = useSelector(state => state.symbolsList)
     // useSelector hook을 통하여 redux store의 state에 접근할 수 있다. 
     // companies에 접근!

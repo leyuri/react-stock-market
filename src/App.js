@@ -4,10 +4,12 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  useParams
 } from "react-router-dom";
 
+
 import { fetchCompanyList } from "./actions";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -27,10 +29,13 @@ function App() {
   const classes = useStyles();
   const dispatch = useDispatch();
 
+
   useEffect(() => {
     // 컴포넌트가 마운트 되면 할 수 있는 것
     dispatch(fetchCompanyList());
   })
+
+
 
   return (
     <Router>
