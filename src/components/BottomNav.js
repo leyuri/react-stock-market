@@ -6,6 +6,7 @@ import BusinessIcon from '@material-ui/icons/Business';
 import HelpIcon from '@material-ui/icons/Help';
 import InfoIcon from '@material-ui/icons/Info';
 import ShowChartIcon from '@material-ui/icons/ShowChart';
+import HomeIcon from '@material-ui/icons/Home';
 import { Link, useLocation } from 'react-router-dom';
 
 const useStyles = makeStyles({
@@ -45,8 +46,8 @@ export default function SimpleBottomNavigation() {
       className={classes.root}
     >
     <BottomNavigationAction 
-        label="Chart" 
-        icon={<ShowChartIcon />} 
+        label="Home" 
+        icon={<HomeIcon />} 
         component={Link}
         to="/"
     />
