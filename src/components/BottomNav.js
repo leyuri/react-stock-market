@@ -12,6 +12,8 @@ const useStyles = makeStyles({
   root: {
     background: "#eee",
     width: "100%",
+    position: "fixed",
+    bottom: 0,
     "& .MuiBottomNavigationAction-root.Mui-selected": {
         color: "#622569"
     },
