@@ -14,6 +14,9 @@ const useStyles = makeStyles({
     width: "100%",
     "& .MuiBottomNavigationAction-root.Mui-selected": {
         color: "#622569"
+    },
+    "& .MuiBottomNavigationAction-root": {
+        minWidth: 0
     }
   },
 });
