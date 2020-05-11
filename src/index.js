@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger' 
-
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
 
 import './index.css';
@@ -12,16 +12,32 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import rootReducer from './reducers/index';
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 
 // store 만들어주기
-const store = createStore(rootReducer, applyMiddleware(logger,thunk));
+const store = createStore(
+  rootReducer, 
+  composeEnhancers(applyMiddleware(logger,thunk)));
+
+
+// material-ui 테마 적용
+const theme = createMuiTheme({
+  palette: {
+    type: 'light',
+  },
+});
+
+
 
 // react-redux 바인딩 시켜주기
 ReactDOM.render(
   <Provider store={store}>
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <React.StrictMode>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </React.StrictMode>
   </Provider>,
   document.getElementById('root')
 );
