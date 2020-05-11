@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
+
+import { fetchCompanyList } from "./actions";
+import { useDispatch } from "react-redux";
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -22,6 +24,13 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const classes = useStyles();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    // 컴포넌트가 마운트 되면 할 수 있는 것
+    dispatch(fetchCompanyList());
+  })
+
   return (
     <Router>
        <div className={classes.app}>
