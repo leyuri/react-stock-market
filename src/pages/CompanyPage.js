@@ -93,7 +93,6 @@ const CompanyPage = () => {
 
     useEffect(() => {
       fetch(`https://finnhub.io/api/v1/company-news?symbol=${symbol}&from=2020-04-30&to=2020-05-01&token=bqbdflvrh5r8t7qng0fg`)
-    //   fetch(`${API_URL}news/${symbol}?token=${API_KEY}`)
         .then(response => response.json())
         .then(data => {
           setPosts(data) // new

@@ -18,9 +18,9 @@ const reducer = produce((state, action) => {
                 // state의 companies의 안에 있는 스토어의 symbol
             })
             break;
-        case "FETCH_COMPANY":
-            state.symbolsList.symbol(action.payload)
-            break;
+        // case "FETCH_COMPANY":
+        //     state.symbolsList.symbol(action.payload)
+        //     break;
         case 'ERROR':
             state.error = action.payload;
             // immer.js를 사용했기 때문에 이런 식으로 가능하다. 
