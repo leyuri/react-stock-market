@@ -1,4 +1,7 @@
 import React from 'react'
+import {
+    Link,
+} from "react-router-dom";
 import { useSelector } from 'react-redux'
 import _ from "lodash";
 
@@ -29,8 +32,13 @@ const useStyles = makeStyles((theme) => ({
 // props으로 받는 것
 const CompanyItem = ({e}) => {
     const { name, symbol } = e;
+    
     return (
-    <ListItem>
+    <ListItem
+        button = {true}
+        component = {Link}
+        to={`/companies/${e.symbol}`}
+    >
         <ListItemText 
             primary={symbol} 
             secondary={name} 
