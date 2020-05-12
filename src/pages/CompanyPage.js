@@ -17,8 +17,11 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-
+import TrendingDownIcon from '@material-ui/icons/TrendingDown';
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
+import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 
 
 import InboxIcon from '@material-ui/icons/Inbox';
@@ -112,97 +115,73 @@ const CompanyPage = () => {
                 <div className={classes.info}>
                     <List component="nav" aria-label="main mailbox folders">
                         <ListItem button>
-                        <ListItemIcon>
-                            <InboxIcon />
-                        </ListItemIcon>
+
                         <ListItemText 
                         primary={`name: ${item.name}`}
                         />
                         </ListItem>
                         <ListItem button>
-                        <ListItemIcon>
-                            <DraftsIcon />
-                        </ListItemIcon>
+
                         <ListItemText 
                         primary={`price: ${item.price}`}
                         />
                         </ListItem>
                         <ListItem button>
-                        <ListItemIcon>
-                            <DraftsIcon />
-                        </ListItemIcon>
+
                         <ListItemText 
                         primary={`changesPercentage: ${item.changesPercentage}`}
                         />
                         </ListItem>
                         <ListItem button>
-                        <ListItemIcon>
-                            <DraftsIcon />
-                        </ListItemIcon>
+
                         <ListItemText 
                         primary={`change: ${item.change}`}
                         />
                         </ListItem>
                         <ListItem button>
-                        <ListItemIcon>
-                            <DraftsIcon />
-                        </ListItemIcon>
+
                         <ListItemText 
                         primary={`marketCap: ${item.marketCap}`}
                         />
                         </ListItem>
                         <ListItem button>
-                        <ListItemIcon>
-                            <DraftsIcon />
-                        </ListItemIcon>
+
                         <ListItemText 
                         primary={`priceAvg50: ${item.priceAvg50}`}
                         />
                         </ListItem>
                         <ListItem button>
-                        <ListItemIcon>
-                            <DraftsIcon />
-                        </ListItemIcon>
+
                         <ListItemText 
                         primary={`priceAvg200: ${item.priceAvg200}`}
                         />
                         </ListItem>
                         <ListItem button>
-                        <ListItemIcon>
-                            <DraftsIcon />
-                        </ListItemIcon>
+
                         <ListItemText 
                         primary={`volume: ${item.volume}`}
                         />
                         </ListItem>
                         <ListItem button>
-                        <ListItemIcon>
-                            <DraftsIcon />
-                        </ListItemIcon>
+
                         <ListItemText 
                         primary={`avgVolume: ${item.avgVolume}`}
                         />
                         </ListItem>
                         <ListItem button>
-                        <ListItemIcon>
-                            <DraftsIcon />
-                        </ListItemIcon>
+
                         <ListItemText 
                         primary={`exhange: ${item.exhange}`}
                         />
                         </ListItem>
                         <ListItem button>
-                        <ListItemIcon>
-                            <DraftsIcon />
-                        </ListItemIcon>
+
                         <ListItemText 
                         primary={`open: ${item.open}`}
                         />
                         </ListItem>
                         <ListItem button>
-                        <ListItemIcon>
-                            <DraftsIcon />
-                        </ListItemIcon>
+
                         <ListItemText 
                         primary={`previousClose: ${item.previousClose}`}
                         />
@@ -211,26 +190,39 @@ const CompanyPage = () => {
                     <Divider />
                     <List component="nav" aria-label="secondary mailbox folders">
                         <ListItem button>
+                        <ListItemIcon>
+                            <ArrowDownwardIcon />
+                        </ListItemIcon>
                         <ListItemText 
                         primary={`dayLow: ${item.dayLow}`}
                     
                         />
                         </ListItem>
                         <ListItem button>
+                        <ListItemIcon>
+                            <ArrowUpwardIcon />
+                        </ListItemIcon>
                         <ListItemText 
                         primary={`dayHigh: ${item.dayHigh}`}
                         />
                         </ListItem>
                         <ListItem button>
-                        <ListItemText 
-                        primary={`yearHigh: ${item.yearHigh}`}
-                        />
-                        </ListItem>
-                        <ListItem button>
+                        <ListItemIcon>
+                            <TrendingDownIcon />
+                        </ListItemIcon>
                         <ListItemText 
                         primary={`yearLow: ${item.yearLow}`}
                         />
                         </ListItem>
+                        <ListItem button>
+                        <ListItemIcon>
+                            <TrendingUpIcon />
+                        </ListItemIcon>
+                        <ListItemText 
+                        primary={`yearHigh: ${item.yearHigh}`}
+                        />
+                        </ListItem>
+
                     </List>
                 </div>
                 ))}  
