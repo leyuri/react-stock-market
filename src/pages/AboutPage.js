@@ -40,13 +40,17 @@ export default function AboutPage() {
   return (
     <div className={classes.root}>
         <AppBar/>
-            <Container maxWidth="sm">
-            
+            <Container>
+            <div>
+                  <h2>
+                  About
+                  </h2>
+              </div>
 
             <Card>
                     <CardContent>
                     <Typography className={classes.title} color="textSecondary" gutterBottom>
-                    Word of the Day
+                   
                     </Typography>
                     <Typography variant="h5" component="h2">
                     Lee{bull}Yu{bull}Ri

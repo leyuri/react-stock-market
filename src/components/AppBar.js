@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ShowChartIcon from '@material-ui/icons/ShowChart';
+import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,7 +31,7 @@ export default function ButtonAppBar() {
       <AppBar position="relative" className={classes.MuiAppBar}>
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-          <ShowChartIcon />
+          <TrendingUpIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
             Stock Market

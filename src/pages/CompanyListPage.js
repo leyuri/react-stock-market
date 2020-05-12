@@ -17,6 +17,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import ImageIcon from '@material-ui/icons/Image';
+import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -32,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 
 // props으로 받는 것
 const CompanyItem = ({e}) => {
-    const { name, symbol } = e;
+    const { name, symbol, price, exchange } = e;
     
     return (
     <ListItem
@@ -41,8 +42,8 @@ const CompanyItem = ({e}) => {
         to={`/companies/${e.symbol}`}
     >
         <ListItemText 
-            primary={symbol} 
-            secondary={name} 
+            primary={name} 
+            secondary={`symbol: ${symbol}, current price: ${price}`}
         />
     </ListItem>
     )
@@ -59,11 +60,19 @@ const CompanyListPage = () => {
     return (
         <div>
             <AppBar/>
+            <Container>
+            <div>
+                    <h2>
+                    Company List
+                    </h2>
+                </div>
             <List className={classes.root}>
                 {/* Hooks에서 selector를 가지고 redux에 있는 것 중 어떤 것을 props로 가져오면 된다 .*/}
                 {/* {companies.map(e => <CompanyItem e={e}/>)} */}
                 {_.map(symbolsList, e => <CompanyItem key={e.symbol} e={e}/>)}
             </List>
+            </Container>
+
             <BottomNav/>
         </div>
     )

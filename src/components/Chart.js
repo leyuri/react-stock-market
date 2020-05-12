@@ -31,14 +31,9 @@ const data = {
 function Chart() {
   return (
     <div>
-      <h2>Welcome!</h2>
-      <h3>This is stock market</h3>
+      {/* <h2>Welcome!</h2>
+      <h3>This is stock market</h3> */}
       <Line data={data} />
-      <p>
-      You can check the company list and click to see the details. 
-      <br></br>
-      Also, you can see the news for each company. Enjoy!
-      </p>
     </div>
 
 
