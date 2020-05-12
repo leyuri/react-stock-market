@@ -29,18 +29,4 @@ export function fetchCompanyList() {
 }
 
 
-// export function fetchCompany(company) {
-//     return async (dispatch) => {
-//         const url = `${BASE_URL}company/profile/${company}`;
-//         try {
-//         const result = await axios(url)
-//         dispatch({
-//             type: 'FETCH_COMPANY',
-//             payload: result.data
-//         })
-//         } catch (error) {
-//             console.error(error);
-//         }
-//     }
-// }
 

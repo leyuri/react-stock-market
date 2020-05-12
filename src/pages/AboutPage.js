@@ -56,7 +56,7 @@ export default function AboutPage() {
                     Lee{bull}Yu{bull}Ri
                     </Typography>
                     <Typography className={classes.pos} color="textSecondary">
-                    adjective
+                    
                     </Typography>
                     <Typography variant="body2" component="p">
                     well meaning and kindly.

@@ -7,7 +7,9 @@
 - React-Redux
 - Redux Dev Tool
 - React hooks
-
+- company symbolList & detail info api : <a href="https://financialmodelingprep.com/developer/docs/">financialmodelingprep</a>
+- company news api : <a href="https://finnhub.io/docs/apis">finnhub.io</a>
+<a></a>
 ##### todo
 
 - Reducer / Redux / React-Redux / Redux-thunk / Redux-logger store를 provider 시키기
