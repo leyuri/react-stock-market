@@ -4,8 +4,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import ShowChartIcon from '@material-ui/icons/ShowChart';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 
 const useStyles = makeStyles((theme) => ({

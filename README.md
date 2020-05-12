@@ -6,16 +6,18 @@
 - Redux
 - React-Redux
 - Redux Dev Tool
+- React hooks
 
 ##### todo
 
-- Reducer / Redux / React-Redux / Redux-thunk / Redux-logger  store를 provider 시키기
+- Reducer / Redux / React-Redux / Redux-thunk / Redux-logger store를 provider 시키기
 - AppBar 
 - BottomNav
 - Add API
 - Fetch CompanyList
 - Show Company Sympbol & Name
 - Fetch Company News
+- Fetch Company Quote
 
 ---
 

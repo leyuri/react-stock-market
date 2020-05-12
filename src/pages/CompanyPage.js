@@ -25,9 +25,6 @@ import InboxIcon from '@material-ui/icons/Inbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
 
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
@@ -37,7 +34,7 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
-      "& .makeStyles-paper-150": {
+      "& .makeStyles-paper-3": {
         marginBottom: '20px'
       },
       marginBottom: "100px"
@@ -46,9 +43,6 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(2),
       margin: 'auto',
       maxWidth: 500,
-      "& .makeStyles-paper-150": {
-        marginBottom: '20px'
-      },
     },
     image: {
       width: 128,
