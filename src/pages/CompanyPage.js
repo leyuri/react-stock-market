@@ -11,6 +11,18 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+
+
+import InboxIcon from '@material-ui/icons/Inbox';
+import DraftsIcon from '@material-ui/icons/Drafts';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -28,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
       "& .makeStyles-paper-150": {
         marginBottom: '20px'
       },
+      marginBottom: "100px"
     },
     paper: {
       padding: theme.spacing(2),
@@ -47,49 +60,29 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: '100%',
       maxHeight: '100%',
     },
+    info: {
+        width: '100%',
+        maxWidth: '100%',
+        backgroundColor: theme.palette.background.paper,
+      },
+      table: {
+        minWidth: 650,
+      },
   }));
 
-// const useStyles = makeStyles({
-//     root: {
-//       minWidth: 275,
-//     },
-//     bullet: {
-//       display: 'inline-block',
-//       margin: '0 2px',
-//       transform: 'scale(0.8)',
-//     },
-//     title: {
-//       fontSize: 14,
-//     },
-//     pos: {
-//       marginBottom: 12,
-//     },
-//   });
 
-// request('https://finnhub.io/api/v1/company-news?symbol=AAPL&from=2020-04-30&to=2020-05-01&token=bqbdflvrh5r8t7qng0fg', 
-
-//     { json: true }, (err, res, body) => {
-//   if (err) { return console.log(err); }
-//   console.log(body.url);
-//   console.log(body.explanation);
-// });
-
-
-
-// https://financialmodelingprep.com/api/v3/company/profile/AAPL
 
 const CompanyPage = () => {
 
     const classes = useStyles();
-
-
     const { symbol } = useParams();
     console.log("symnbol:", symbol);
     // stores 중에 내가 원하는 스토어를 가져올 수 있어야 한다. 
     const company = useSelector(state => state.symbolsList[symbol])
 
     const [posts, setPosts] = useState([])
-    const [info, setinfo] = useState([])
+
+    const [quote, setQuote] = useState([])
 
     useEffect(() => {
       fetch(`https://finnhub.io/api/v1/company-news?symbol=${symbol}&from=2020-04-30&to=2020-05-01&token=bqbdflvrh5r8t7qng0fg`)
@@ -99,44 +92,164 @@ const CompanyPage = () => {
         })
     }, [symbol])
 
-    useEffect(() => {
-        fetch(`https://financialmodelingprep.com/api/v3/company/profile/${symbol}`)
-      //   fetch(`${API_URL}news/${symbol}?token=${API_KEY}`)
-        //   .then(response => response.json())
-        //   .then(data => {
-        //     setinfo(data) // new
-        //   })
 
-          .then(response => {
-            if (response.data) {
-                setinfo(response.data.info)
-            } else {
-                alert('Failed to get info')
-            }
-        })
+    useEffect(() => {
+        fetch(`https://financialmodelingprep.com/api/v3/quote/${symbol}`)
+          .then(response => response.json())
+          .then(data => {
+            setQuote(data) // new
+          })
       }, [symbol])
-    
+
+
     return (
         <div className={classes.root}>
             <AppBar/>
-                <Container maxWidth="sm">
-                <br></br>
-                Detail: {company.symbol}
-                <br></br>
-                Price: {company.price}
-
-
-                {info.map(item => (
-                    <div key={item.symbol}>
-                    <ListItem>
-                        <ListItemText
-                        primary={item.profile.industry}
-                        secondary={item.profile.industry}
+                <Container>
+                {/* <Typography variant="h4" gutterBottom>
+                    {symbol}'s Detail
+                </Typography> */}
+                <div>
+                    <h2>
+                    {symbol}'s Detail
+                    </h2>
+                </div>
+                {quote.map(item => (
+                <div className={classes.info}>
+                    <List component="nav" aria-label="main mailbox folders">
+                        <ListItem button>
+                        <ListItemIcon>
+                            <InboxIcon />
+                        </ListItemIcon>
+                        <ListItemText 
+                        primary={`name: ${item.name}`}
                         />
-                    </ListItem>
-                    </div>
+                        </ListItem>
+                        <ListItem button>
+                        <ListItemIcon>
+                            <DraftsIcon />
+                        </ListItemIcon>
+                        <ListItemText 
+                        primary={`price: ${item.price}`}
+                        />
+                        </ListItem>
+                        <ListItem button>
+                        <ListItemIcon>
+                            <DraftsIcon />
+                        </ListItemIcon>
+                        <ListItemText 
+                        primary={`changesPercentage: ${item.changesPercentage}`}
+                        />
+                        </ListItem>
+                        <ListItem button>
+                        <ListItemIcon>
+                            <DraftsIcon />
+                        </ListItemIcon>
+                        <ListItemText 
+                        primary={`change: ${item.change}`}
+                        />
+                        </ListItem>
+                        <ListItem button>
+                        <ListItemIcon>
+                            <DraftsIcon />
+                        </ListItemIcon>
+                        <ListItemText 
+                        primary={`marketCap: ${item.marketCap}`}
+                        />
+                        </ListItem>
+                        <ListItem button>
+                        <ListItemIcon>
+                            <DraftsIcon />
+                        </ListItemIcon>
+                        <ListItemText 
+                        primary={`priceAvg50: ${item.priceAvg50}`}
+                        />
+                        </ListItem>
+                        <ListItem button>
+                        <ListItemIcon>
+                            <DraftsIcon />
+                        </ListItemIcon>
+                        <ListItemText 
+                        primary={`priceAvg200: ${item.priceAvg200}`}
+                        />
+                        </ListItem>
+                        <ListItem button>
+                        <ListItemIcon>
+                            <DraftsIcon />
+                        </ListItemIcon>
+                        <ListItemText 
+                        primary={`volume: ${item.volume}`}
+                        />
+                        </ListItem>
+                        <ListItem button>
+                        <ListItemIcon>
+                            <DraftsIcon />
+                        </ListItemIcon>
+                        <ListItemText 
+                        primary={`avgVolume: ${item.avgVolume}`}
+                        />
+                        </ListItem>
+                        <ListItem button>
+                        <ListItemIcon>
+                            <DraftsIcon />
+                        </ListItemIcon>
+                        <ListItemText 
+                        primary={`exhange: ${item.exhange}`}
+                        />
+                        </ListItem>
+                        <ListItem button>
+                        <ListItemIcon>
+                            <DraftsIcon />
+                        </ListItemIcon>
+                        <ListItemText 
+                        primary={`open: ${item.open}`}
+                        />
+                        </ListItem>
+                        <ListItem button>
+                        <ListItemIcon>
+                            <DraftsIcon />
+                        </ListItemIcon>
+                        <ListItemText 
+                        primary={`previousClose: ${item.previousClose}`}
+                        />
+                        </ListItem>
+                    </List>
+                    <Divider />
+                    <List component="nav" aria-label="secondary mailbox folders">
+                        <ListItem button>
+                        <ListItemText 
+                        primary={`dayLow: ${item.dayLow}`}
+                    
+                        />
+                        </ListItem>
+                        <ListItem button>
+                        <ListItemText 
+                        primary={`dayHigh: ${item.dayHigh}`}
+                        />
+                        </ListItem>
+                        <ListItem button>
+                        <ListItemText 
+                        primary={`yearHigh: ${item.yearHigh}`}
+                        />
+                        </ListItem>
+                        <ListItem button>
+                        <ListItemText 
+                        primary={`yearLow: ${item.yearLow}`}
+                        />
+                        </ListItem>
+                    </List>
+                </div>
                 ))}  
-                
+
+                <br></br>
+
+                <div>
+                    <h2>
+                    {symbol}'s News
+                    </h2>
+                </div>
+
+
                 {posts.map(item => (
                     <div key={item.title}>
                 <Paper className={classes.paper}>
