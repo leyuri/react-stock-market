@@ -23,7 +23,9 @@
 |---|:---:|---:|
 | <img width="408" alt="Screen Shot 2020-05-12 at 10 24 42 PM" src="https://user-images.githubusercontent.com/33794732/81697001-9fcdd880-949f-11ea-8e39-0fcae525f076.png"> | <img width="409" alt="Screen Shot 2020-05-12 at 10 25 51 PM" src="https://user-images.githubusercontent.com/33794732/81697004-a0666f00-949f-11ea-99cd-2d0878e751ce.png"> | <img width="407" alt="Screen Shot 2020-05-12 at 10 26 09 PM" src="https://user-images.githubusercontent.com/33794732/81697006-a0ff0580-949f-11ea-971a-accc783322b0.png"> |
 
+### More information
 
+You can find more information on youtube video: <a href="https://www.youtube.com/watch?v=zt-9UQ6kKzk">react-stock-market<a>
 
 
 
