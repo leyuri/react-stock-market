@@ -9,6 +9,7 @@
 - React hooks
 - company symbolList & detail info api : <a href="https://financialmodelingprep.com/developer/docs/">financialmodelingprep</a>
 - company news api : <a href="https://finnhub.io/docs/apis">finnhub.io</a>
+- <a href="https://finnhub.io/docs/apis">netlify</a>
 <a></a>
 
 ### Features
@@ -45,6 +46,7 @@ You can find more information on youtube video: <a href="https://www.youtube.com
 - Show Company Sympbol & Name
 - Fetch Company News
 - Fetch Company Quote
+- Deploy app
 
 ##### Tip
 useLocation은 위 두 가지 hooks들과 마찬가지로 location객체에 접근할 수 있게 해주는 hook
