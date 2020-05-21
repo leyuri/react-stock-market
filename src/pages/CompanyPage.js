@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { API_URL, API_KEY } from '../actions';
+import { API_URL, API_KEY, SECOND_URL,SECOND_KEY } from '../actions';
 
 import AppBar from "../components/AppBar";
 import BottomNav from "../components/BottomNav";
@@ -82,7 +82,7 @@ const CompanyPage = () => {
     const [quote, setQuote] = useState([])
 
     useEffect(() => {
-      fetch(`https://finnhub.io/api/v1/company-news?symbol=${symbol}&from=2020-04-30&to=2020-05-01&token=bqbdflvrh5r8t7qng0fg`)
+      fetch(`${SECOND_URL}/company-news?symbol=${symbol}&from=2020-04-30&to=2020-05-01&token=${SECOND_KEY}`)
         .then(response => response.json())
         .then(data => {
           setPosts(data) // new
@@ -91,7 +91,7 @@ const CompanyPage = () => {
 
 
     useEffect(() => {
-        fetch(`https://financialmodelingprep.com/api/v3/quote/${symbol}`)
+        fetch(`${API_URL}quote/${symbol}?apikey=${API_KEY}`)
           .then(response => response.json())
           .then(data => {
             setQuote(data) // new
@@ -112,7 +112,8 @@ const CompanyPage = () => {
                     </h2>
                 </div>
                 {quote.map(item => (
-                <div className={classes.info}>
+           
+                <div className={classes.info} key={item.symbol}>
                     <List component="nav" aria-label="main mailbox folders">
                         <ListItem button>
 

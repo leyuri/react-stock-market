@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
     "chart.js": "^2.9.3",
+    "cors": "^2.8.5",
     "immer": "^6.0.3",
     "lodash": "^4.17.15",
     "react": "^16.13.1",
